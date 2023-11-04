@@ -27,8 +27,7 @@ var CognitoStrategy = require('passport-cognito')
 
 passport.use(new CognitoStrategy({
     userPoolId: 'ap-northeast-1_eSjqLfqKc',
-    clientId: 'vtvg02tr21zmxvspyvawtv09b',
-    region: 'ap-northeast-1'
+    clientId: 'vtvg02tr21zmxvspyvawtv09b'
   },
   function(accessToken, idToken, refreshToken, user, cb) {
     process.nextTick(function() {
@@ -69,8 +68,7 @@ var CognitoStrategy = require('passport-cognito')
 
 passport.use(new CognitoStrategy({
     userPoolId: 'ap-northeast-1_eSjqLfqKc',
-    clientId: 'vtvg02tr21zmxvspyvawtv09b',
-    region: 'ap-northeast-1'
+    clientId: 'vtvg02tr21zmxvspyvawtv09b'
   },
   function(accessToken, idToken, refreshToken, user, session, cb) {
     process.nextTick(function() {
@@ -82,4 +80,8 @@ passport.use(new CognitoStrategy({
 ));
 ```
 
+# ChangeLog
 
+- 2023-11-04
+  - Removed aws-sdk v2 dependency.
+    - `region` is not required in constructor, because userPoolId includes a `region`.
