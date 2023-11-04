@@ -5,7 +5,7 @@ var chai = require('chai');
 var expect = require('chai').expect;
 var CognitoStrategy = require('../lib/strategy');
 
-chai.use(require('@zhaow-de/chai-passport-strategy'));
+chai.use(require('chai-passport-strategy'));
 
 describe('Strategy', function() {
     
@@ -54,7 +54,7 @@ describe('Strategy', function() {
           code  = c;
           done();
         })
-        .req(function(req) {
+        .request(function(req) {
           req.body = {}
         })
         .authenticate();
@@ -82,7 +82,7 @@ describe('Strategy', function() {
           err = e;
           done();
         })
-        .req(function(req) {
+        .request(function(req) {
           req.body = {}
           req.body.username = "username"
           req.body.password = "password"
